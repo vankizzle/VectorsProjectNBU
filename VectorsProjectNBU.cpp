@@ -3,5 +3,5 @@
 
 int main()
 {
-    std::cout << "Svetkata e pich!\n";
+    std::cout << "Svetkata e pich!!\n";
 }
