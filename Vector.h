@@ -15,10 +15,13 @@ public:
 	Vector& operator=(const Vector&);
 	~Vector();
 
+	Point GetA();
+	Point GetB();
+
 	//task 2
 	int vectorLength(int, int, int);
-	Vector vectorDirection(int, int, int);
-	bool isVectorNull(int, int, int);
+	Vector vectorDirection();
+	bool isVectorNull();
 	bool vectorParallelism(Vector&);
 	bool vectorPerpendicularity(Vector&);
 
@@ -31,6 +34,9 @@ public:
 
 	virtual std::ostream& ins(std::ostream&)const;
 	virtual std::istream& ext(std::istream&);
+private:
+	Point A_;
+	Point B_;
 };
 
 #endif

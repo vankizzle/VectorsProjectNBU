@@ -2,9 +2,18 @@
 
 Vector::Vector() : Point() {}
 
-Vector::Vector(int x, int y, int z) : Point(x, y, z) {} //first realization
+Vector::Vector(int x, int y, int z)
+{
+	setX(x);
+	setY(y);
+	setZ(z);
+} //first realization
 
-Vector::Vector(const Point& A, const Point& B) : Vector(B.getX() - A.getX(), B.getY() - A.getY(), B.getZ() - A.getZ()) {} //second realization
+Vector::Vector(const Point& A, const Point& B) : Vector(B.getX() - A.getX(), B.getY() - A.getY(), B.getZ() - A.getZ())
+{
+	A_ = A;
+	B_ = B;
+} //second realization
 
 Vector::Vector(const Vector& rhs) : Point() {} //copy ctor of the Point 
 
@@ -24,7 +33,11 @@ int Vector::vectorLength(int x, int y, int z) {
 	return sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2));
 }
 
-Vector Vector::vectorDirection(int x, int y, int z) {
+Vector Vector::vectorDirection() {
+	int x = getX();
+	int y = getY();
+	int z = getZ();
+
 	double i, j, k;
 	i = x / vectorLength(x, y, z);
 	j = y / vectorLength(x, y, z);
@@ -32,8 +45,8 @@ Vector Vector::vectorDirection(int x, int y, int z) {
 	return Vector(i, j, k);
 }
 
-bool Vector::isVectorNull(int x, int y, int z) {
-	return (x == 0 && y == 0 && z == 0); //return true if is null
+bool Vector::isVectorNull() {
+	return (getX() == 0 && getY() == 0 && getZ() == 0); //return true if is null
 }
 
 bool Vector::vectorParallelism(Vector& v) {
@@ -77,12 +90,20 @@ int Vector::operator *(const Vector& rhs) {
 
 //...
 
-std::ostream& Vector::ins(std::ostream& out)const {
-	Point::ins(out);
-	return out << "\nVecor has  cordinates: \nx= " << getX() << "\ny= " << getY() << "\nz= " << getZ() << std::endl;
+std::ostream& Vector::ins(std::ostream& out)const {	
+	return out << "\nVector has  cordinates: \nx= " << getX() << "\ny= " << getY() << "\nz= " << getZ() << std::endl;
 }
 
 std::istream& Vector::ext(std::istream& in) {
-	Point::ext(in); //Base ext
 	return in;
+}
+
+Point Vector::GetA()
+{
+	return A_;
+}
+
+Point Vector::GetB()
+{
+	return B_;
 }
