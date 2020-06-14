@@ -11,20 +11,20 @@ public:
 	Triangle& operator=(const Triangle&);
 	~Triangle();
 
-	std::string GetTriangleKind();
-	double GetTriangleSurface();
-	double GetTrianglePerimeter();
-	Point& GetTriangleInCentre();
+	std::string GetTriangleKind() const;
+	double GetTriangleSurface() const;
+	double GetTrianglePerimeter() const;
+	Point& GetTriangleCentroid() const;
 
 	//Operators Overloading
-	Point& operator<(const Triangle&);
-	Point& operator>(const Triangle&);
-	Point& operator==(const Triangle&);
+	bool operator<(const Point&);
+	bool operator>(const Point&);
+	bool operator==(const Point&);
 
 	virtual std::ostream& ins(std::ostream&)const;
 	virtual std::istream& ext(std::istream&);
 private:
-	int a, b, c;
+	double a, b, c;
 	Point first, second, third;
 };
 

@@ -4,7 +4,7 @@
 
 Point::Point() : x(0), y(0), z(0) {} //def ctor 0 values
 
-Point::Point(int x, int y, int z) : x(x), y(y), z(z) {} //ctor
+Point::Point(double x, double y, double z) : x(x), y(y), z(z) {} //ctor
 
 Point::Point(const Point& rhs) : x(rhs.x), y(rhs.y), z(rhs.z) {} //copy ctor
 
@@ -26,17 +26,24 @@ bool Point::operator==(Point& rhs) //comparison f-ion
 	return (this->x == rhs.x) && (this->y == rhs.y) && (this->z == rhs.z); //get() ??
 }
 
-int Point::getX() const { return x; }
+double Point::getX() const { return x; }
 
-int Point::getY() const { return y; }
+double Point::getY() const { return y; }
 
-int Point::getZ() const { return z; }
+double Point::getZ() const { return z; }
 
-void Point::setX(int x){ this->x = x; }
+void Point::setX(double x){ this->x = x; }
 
-void Point::setY(int y){ this->y = y; }
+void Point::setY(double y){ this->y = y; }
 
-void Point::setZ(int z) { this->z = z; }
+void Point::setZ(double z) { this->z = z; }
+
+double Point::FindDistanceTo(Point& other) const
+{
+	return sqrt((pow((this->getX() - other.getX()), 2))
+		+ (pow((this->getY() - other.getY()), 2))
+		+ (pow((this->getZ() - other.getZ()), 2)));
+}
 
 std::ostream& Point::ins(std::ostream& out)const {
 	return out << "\nPoint has cordinates:\nx= " << x << "\ny= " << y << "\nz= " << z << std::endl;

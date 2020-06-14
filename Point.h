@@ -7,26 +7,29 @@ class Point : public Element
 {
 public:
 	Point(); 
-	Point(int, int, int); 
+	Point(double, double, double); 
 	Point(const Point& rhs);
 	Point& operator=(const Point&);
 	~Point();
 
 	bool operator==(Point&);
 
-	int getX() const; 
-	int getY() const; 
-	int getZ() const; 
+	double getX() const; 
+	double getY() const; 
+	double getZ() const; 
 
-	void setX(int); 
-	void setY(int); 
-	void setZ(int); 
+	void setX(double); 
+	void setY(double); 
+	void setZ(double);
+
+	//Helper functions
+	double FindDistanceTo(Point&) const;
 
 	virtual std::ostream& ins(std::ostream&)const;
 	virtual std::istream& ext(std::istream&);
 
 private:
-	int x, y, z; //double ?
+	double x, y, z;
 };
 
 #endif
