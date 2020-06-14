@@ -1,15 +1,22 @@
 #include "Triangle.h"
+#include "EqualPointsException.h"
 
-Triangle& Triangle::operator=(const Triangle& rhs) { //assignment operator
-	if (this != &rhs) {
-		first = rhs.first;
-		second = rhs.second;
-		third = rhs.third;
+Triangle::Triangle(Point& a, Point& b, Point& c)
+{
+	if (a == b)
+	{
+		throw EqualPointsException(a, b);
 	}
-	return *this;
-}
-Triangle::~Triangle() { 
-	std::cout << "Destructor for Triangle class called here.\n";
+	else if (a == c)
+	{
+		throw EqualPointsException(a, c);
+	}
+	else if (b == c)
+	{
+		throw EqualPointsException(b, c);
+	}
+
+	//TODO: Assign Points
 }
 
 std::ostream& Triangle::ins(std::ostream& out)const {

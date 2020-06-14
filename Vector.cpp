@@ -2,11 +2,11 @@
 
 Vector::Vector() : Point() {}
 
-Vector::Vector(int x, int y, int z)
+Vector::Vector(int i, int j, int k)
 {
-	setX(x);
-	setY(y);
-	setZ(z);
+	setX(i);
+	setY(j);
+	setZ(k);
 } //first realization
 
 Vector::Vector(const Point& A, const Point& B) : Vector(B.getX() - A.getX(), B.getY() - A.getY(), B.getZ() - A.getZ())
