@@ -1,6 +1,13 @@
 #include "Triangle.h"
 #include "EqualPointsException.h"
 
+Triangle::Triangle() : a(0), b(0), c(0)
+{
+	this->first = Point(0, 0, 0);
+	this->second = Point(0, 0, 0);
+	this->third = Point(0, 0, 0);
+}
+
 Triangle::Triangle(Point& a, Point& b, Point& c)
 {
 	if (a == b)
@@ -48,6 +55,21 @@ Triangle& Triangle::operator=(const Triangle& rhs)
 Triangle::~Triangle()
 {
 	std::cout << "Triangle destructor is here" << std::endl;
+}
+
+double Triangle::getA() const
+{
+	return this->a;
+}
+
+double Triangle::getB() const
+{
+	return this->b;
+}
+
+double Triangle::getC() const
+{
+	return this->c;
 }
 
 std::string Triangle::GetTriangleKind() const
@@ -111,17 +133,17 @@ Point& Triangle::GetTriangleCentroid() const
 
 bool Triangle::operator<(const Point& rhs)
 {
-	
+	return true;
 }
 
 bool Triangle::operator>(const Point&)
 {
-	
+	return true;
 }
 
 bool Triangle::operator==(const Point&)
 {
-	
+	return true;
 }
 
 

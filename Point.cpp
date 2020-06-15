@@ -21,7 +21,7 @@ Point::~Point() {
 	std::cout << "Destructor for Point class called here.\n";
 }
 
-bool Point::operator==(Point& rhs) //comparison f-ion
+bool Point::operator==(Point& rhs) //comparison t1-ion
 {
 	return (this->x == rhs.x) && (this->y == rhs.y) && (this->z == rhs.z); //get() ??
 }
