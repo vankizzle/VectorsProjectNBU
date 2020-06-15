@@ -10,12 +10,10 @@ Vector::Vector(int i, int j, int k)
 } //first realization
 
 Vector::Vector(const Point& A, const Point& B) : Vector(B.getX() - A.getX(), B.getY() - A.getY(), B.getZ() - A.getZ())
-{
-	A_ = A;
-	B_ = B;
-} //second realization
+{} //second realization
 
-Vector::Vector(const Vector& rhs) : Point() {} //copy ctor of the Point 
+Vector::Vector(const Vector& rhs) : Vector(rhs.getX(), rhs.getY(), rhs.getZ())
+{} //copy ctor of the Vector 
 
 Vector& Vector::operator=(const Vector& rhs) {
 	if (this != &rhs) {
@@ -25,23 +23,25 @@ Vector& Vector::operator=(const Vector& rhs) {
 }
 
 Vector::~Vector() {
-	std::cout << "Destructor for Vector called here.\n";
+	//std::cout << "Destructor for Vector called here.\n";
 }
 
 //task 2
-int Vector::vectorLength(int x, int y, int z) {
-	return sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2));
+int Vector::vectorLength() 
+{
+	return sqrt(pow(getX(), 2) + pow(getY(), 2) + pow(getZ(), 2));
 }
 
 Vector Vector::vectorDirection() {
 	int x = getX();
 	int y = getY();
 	int z = getZ();
+	int len = vectorLength();
 
 	double i, j, k;
-	i = x / vectorLength(x, y, z);
-	j = y / vectorLength(x, y, z);
-	k = z / vectorLength(x, y, z);
+	i = x / len;
+	j = y / len;
+	k = z / len;
 	return Vector(i, j, k);
 }
 
@@ -96,14 +96,4 @@ std::ostream& Vector::ins(std::ostream& out)const {
 
 std::istream& Vector::ext(std::istream& in) {
 	return in;
-}
-
-Point Vector::GetA()
-{
-	return A_;
-}
-
-Point Vector::GetB()
-{
-	return B_;
 }

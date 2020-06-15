@@ -24,7 +24,7 @@ Line::Line(const Point& a , const Vector& vect)
 {	
 	pointA_ = a;	
 	vectAB_ = vect;
-	pointB_ = vectAB_.GetB();
+	pointB_ = Point((vect.getX() + a.getX()), (vect.getY() + a.getY()), (vect.getZ() + a.getZ()));
 	setX(pointA_.getX() + (pointB_.getX()));
 	setY(pointA_.getY() + (pointB_.getY()));
 	setZ(pointA_.getZ() + (pointB_.getZ()));
@@ -162,7 +162,6 @@ bool Line::operator==(const Line& line)
 		return true;
 	
     return false;
-	
 }
 
 bool Line::operator&&(const Line& line)

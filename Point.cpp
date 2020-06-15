@@ -18,7 +18,7 @@ Point& Point::operator=(const Point& rhs) { //assignment operator
 }
 
 Point::~Point() {
-	std::cout << "Destructor for Point class called here.\n";
+	//std::cout << "Destructor for Point class called here.\n";
 }
 
 bool Point::operator==(Point& rhs) //comparison t1-ion
