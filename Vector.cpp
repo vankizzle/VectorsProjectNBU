@@ -2,7 +2,7 @@
 
 Vector::Vector() : Point() {}
 
-Vector::Vector(int i, int j, int k)
+Vector::Vector(double i, double j, double k)
 {
 	setX(i);
 	setY(j);
@@ -27,16 +27,16 @@ Vector::~Vector() {
 }
 
 //task 2
-int Vector::vectorLength() 
+double Vector::vectorLength() 
 {
 	return sqrt(pow(getX(), 2) + pow(getY(), 2) + pow(getZ(), 2));
 }
 
 Vector Vector::vectorDirection() {
-	int x = getX();
-	int y = getY();
-	int z = getZ();
-	int len = vectorLength();
+	double x = getX();
+	double y = getY();
+	double z = getZ();
+	double len = vectorLength();
 
 	double i, j, k;
 	i = x / len;
@@ -83,12 +83,12 @@ Vector Vector::operator -(const Vector& rhs) {
 	return Vector(getX() - rhs.getX(), getY() - rhs.getY(), getZ() - rhs.getZ());
 }
 
-int Vector::operator *(const Vector& rhs) {
+double Vector::operator *(const Vector& rhs) {
 	std::cout << "The result after multiplication is a real number with value ";
 	return getX() * rhs.getX() + getY() * rhs.getY() + getZ() * rhs.getZ();
 }
 
-int Vector::operator()(const Vector& v2, const Vector& v3) {
+double Vector::operator()(const Vector& v2, const Vector& v3) {
 	std::cout << "Result after mixed vector multiplication is a real number with value: ";
 	return (this->getY() * v2.getZ() - v2.getY() * this->getZ()) * v3.getX()
 		- (this->getX() * v2.getZ() - v2.getX() * this->getZ()) * v3.getY()
