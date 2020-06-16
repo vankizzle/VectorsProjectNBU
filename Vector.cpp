@@ -88,7 +88,12 @@ int Vector::operator *(const Vector& rhs) {
 	return getX() * rhs.getX() + getY() * rhs.getY() + getZ() * rhs.getZ();
 }
 
-//...
+int Vector::operator()(const Vector& v2, const Vector& v3) {
+	std::cout << "Result after mixed vector multiplication is a real number with value: ";
+	return (this->getY() * v2.getZ() - v2.getY() * this->getZ()) * v3.getX()
+		- (this->getX() * v2.getZ() - v2.getX() * this->getZ()) * v3.getY()
+		+ (this->getX() * v2.getY() - this->getY() * v2.getX()) * v3.getZ();
+}
 
 std::ostream& Vector::ins(std::ostream& out)const {	
 	return out << "\nVector has  cordinates: \nx= " << getX() << "\ny= " << getY() << "\nz= " << getZ() << std::endl;

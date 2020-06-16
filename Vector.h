@@ -27,7 +27,7 @@ public:
 	Vector operator +(const Vector&);
 	Vector operator -(const Vector&);
 	int operator *(const Vector&);
-	//...
+	int operator()(const Vector&, const Vector&);
 
 	virtual std::ostream& ins(std::ostream&)const;
 	virtual std::istream& ext(std::istream&);
